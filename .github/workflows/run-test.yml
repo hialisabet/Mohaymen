@@ -22,8 +22,11 @@ jobs:
       - name: Restore Dependencies
         run: dotnet restore
 
+      - name: Clean Build
+        run: dotnet clean
+
       - name: Build Solution
-        run: dotnet build --no-restore --configuration Release
+        run: dotnet build --no-restore --configuration Debug
 
       - name: Run Tests
-        run: dotnet test --no-build --verbosity normal
+        run: dotnet test --no-build --configuration Debug --verbosity detailed
